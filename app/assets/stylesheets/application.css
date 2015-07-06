@@ -17,3 +17,11 @@ body {
 	background-color: #000;
 	color: #fff;
 }
+
+button {
+	background: transparent;
+	color: #fff;
+	text-transform: uppercase;
+	border: none;
+	font-size: 12px;
+}

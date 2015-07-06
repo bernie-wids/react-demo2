@@ -7,5 +7,5 @@
 	render: ->
 		<div>
 			<h1>Sample React.js demo in Rails</h1>
-			<Button onClick={ this.onClick } text="Super Button" />
+			<Button onClick={ this.onClick } text="My list" />
 		</div>

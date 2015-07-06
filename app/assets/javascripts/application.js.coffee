@@ -7,3 +7,4 @@
 #= require eventemitter
 #= require dispatcher
 #= require_tree .
+#= require_tree ./libs
