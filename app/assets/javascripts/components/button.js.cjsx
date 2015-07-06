@@ -11,8 +11,17 @@
 		this.setState
 			action: 'mouseleave'
 
+	onClick: ->
+		this.setState
+			action: 'click'
+
 	render: ->
-		<button onClick={ this.props.onClick } onMouseEnter={ this.onMouseEnter } onMouseLeave={ this.onMouseLeave } className={ this.state.action }>
+		text = this.props.text
+
+		if this.state.action == 'click'
+			text = 'Adding ...'
+
+		<button onClick={ this.onClick } onMouseEnter={ this.onMouseEnter } onMouseLeave={ this.onMouseLeave } className={ this.state.action }>
 			<span className="fa-stack fa-lg">
 				{
 					if this.state.action == 'default' || this.state.action == 'mouseleave'
@@ -20,12 +29,12 @@
 							<i className="fa fa-circle-o fa-stack-2x"></i>
 							<i className="fa fa-plus fa-stack-1x"></i>		
 						</div>
-					else if this.state.action == 'mouseenter'
+					else if this.state.action == 'mouseenter' || this.state.action == 'click'
 						<div>
 							<i className="fa fa-circle fa-stack-2x"></i>
 							<i className="fa fa-plus fa-stack-1x"></i>		
 						</div>
 				}
 			</span>
-			{ this.props.text }
+			{ text }
 		</button>
