@@ -1,2 +1,2 @@
-#= require_tree ./libs
+#= require ./libs/ajax
 #= require_tree ./components

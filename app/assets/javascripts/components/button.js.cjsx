@@ -2,6 +2,7 @@
 
 	getInitialState: ->
 		action: 'default'
+		loading: false
 
 	onMouseEnter: ->
 		this.setState
@@ -14,6 +15,10 @@
 	onClick: ->
 		this.setState
 			action: 'click'
+		post '/some-url', @updateData
+
+	updateData: (data) ->
+		@_data = data
 
 	render: ->
 		text = this.props.text
