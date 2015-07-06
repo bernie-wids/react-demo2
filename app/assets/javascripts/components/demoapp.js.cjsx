@@ -5,4 +5,7 @@
 
 
 	render: ->
-		<Button onClick={ this.onClick } text="Super Button" />
+		<div>
+			<h1>Sample React.js demo in Rails</h1>
+			<Button onClick={ this.onClick } text="Super Button" />
+		</div>
