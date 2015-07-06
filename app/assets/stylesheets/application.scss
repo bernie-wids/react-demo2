@@ -13,15 +13,22 @@
  *= require_tree .
  *= require_self
  */
+
+ $black: #000;
+ $white: #fff;
+
 body {
-	background-color: #000;
-	color: #fff;
+	background-color: $black;
+	color: $white;
 }
 
 button {
 	background: transparent;
-	color: #fff;
+	color: $white;
 	text-transform: uppercase;
 	border: none;
 	font-size: 12px;
+	&.mouseenter i:last-child {
+		color: $black;
+	}
 }
