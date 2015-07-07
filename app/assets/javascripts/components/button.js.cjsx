@@ -13,11 +13,13 @@
 			action: 'mouseleave'
 
 	onClick: ->
-		fetch '/some-url', @updateData	
 		this.setState
 			action: 'click'
+		console.log 'onClick'
+		fetch '/welcome/demo.json', @updateData
 			
 	updateData: (data) ->
+		console.log 'updateData'
 		@_data = data
 
 	classes: ->
