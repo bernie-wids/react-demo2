@@ -13,12 +13,17 @@
 			action: 'mouseleave'
 
 	onClick: ->
+		fetch '/some-url', @updateData	
 		this.setState
 			action: 'click'
-		post '/some-url', @updateData
-
+			
 	updateData: (data) ->
 		@_data = data
+
+	classes: ->
+		classNames
+			'fa-stack': true
+			'fa-lg': true
 
 	render: ->
 		text = this.props.text
@@ -27,7 +32,7 @@
 			text = 'Adding ...'
 
 		<button onClick={ this.onClick } onMouseEnter={ this.onMouseEnter } onMouseLeave={ this.onMouseLeave } className={ this.state.action }>
-			<span className="fa-stack fa-lg">
+			<span className={ this.classes() }>
 				{
 					if this.state.action == 'default' || this.state.action == 'mouseleave'
 						<div>

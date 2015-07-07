@@ -6,5 +6,4 @@
 #= require flux
 #= require eventemitter
 #= require dispatcher
-#= require_tree ./libs
 #= require_tree .
