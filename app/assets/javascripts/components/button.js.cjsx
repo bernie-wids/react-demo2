@@ -15,14 +15,26 @@
 				action: 'mouseleave'
 
 	onClick: ->
+		action = 'adding'
+		path = '/welcome/add.json'
+
+		if this.state.action == 'added'
+			action = 'removing'
+			path = '/welcome/remove.json'
+
 		this.setState
-			action: 'adding'
-		FETCH '/welcome/add.json', @updateData
+			action: action
+		FETCH path, @updateData
 			
 	updateData: (data) ->
+		action = 'added'
+
+		if this.state.action == 'removing'
+			action = 'default'
+
 		@_data = data
 		this.setState
-			action: 'added'
+			action: action
 
 	classes: ->
 		classNames
@@ -30,12 +42,10 @@
 			'fa-lg': true
 
 	render: ->
-		console.log this.state.action
-
 		text = this.props.text
 
-		if this.state.action == 'adding'
-			text = 'Adding ...'
+		if this.state.action == 'adding' || this.state.action == 'removing'
+			text = this.state.action + ' ...'
 
 		<button onClick={ this.onClick } onMouseEnter={ this.onMouseEnter } onMouseLeave={ this.onMouseLeave } className={ this.state.action }>
 			<span className={ this.classes() }>
@@ -48,7 +58,7 @@
 					else if this.state.action == 'mouseenter' || this.state.action == 'adding'
 						<div>
 							<i className="fa fa-circle fa-stack-2x"></i>
-							<i className="fa fa-plus fa-stack-1x"></i>		
+							<i className="fa fa-plus fa-stack-1x"></i>
 						</div>
 					else if this.state.action == 'added'
 						<div>
