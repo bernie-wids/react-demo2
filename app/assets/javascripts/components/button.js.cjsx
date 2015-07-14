@@ -52,20 +52,11 @@
 			<span className={ this.classes() }>
 				{
 					if this.state.action == 'default' || this.state.action == 'mouseleave'
-						<div>
-							<i className="fa fa-circle-o fa-stack-2x"></i>
-							<i className="fa fa-plus fa-stack-1x"></i>		
-						</div>
+						<PlusButton />
 					else if this.state.action == 'mouseenter' || this.state.action == 'adding'
-						<div>
-							<i className="fa fa-circle fa-stack-2x"></i>
-							<i className="fa fa-plus fa-stack-1x"></i>
-						</div>
+						<PlusButton />
 					else if this.state.action == 'added'
-						<div>
-							<i className="fa fa-circle fa-stack-2x"></i>
-							<i className="fa fa-check fa-stack-1x"></i>		
-						</div>
+						<CheckButton />
 				}
 			</span>
 			{ text }
