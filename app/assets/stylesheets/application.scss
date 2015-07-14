@@ -28,7 +28,7 @@ button {
 	text-transform: uppercase;
 	border: none;
 	font-size: 12px;
-	&.mouseenter, &.click {
+	&.mouseenter, &.click, &.adding {
 		i:last-child {
 			color: $black;
 		}

@@ -5,22 +5,24 @@
 		loading: false
 
 	onMouseEnter: ->
-		this.setState
-			action: 'mouseenter'
+		if this.state.action != 'adding'
+			this.setState
+				action: 'mouseenter'
 
 	onMouseLeave: ->
-		this.setState
-			action: 'mouseleave'
+		if this.state.action != 'adding'
+			this.setState
+				action: 'mouseleave'
 
 	onClick: ->
 		this.setState
-			action: 'click'
-		console.log 'onClick'
+			action: 'adding'
 		fetch '/welcome/demo.json', @updateData
 			
 	updateData: (data) ->
-		console.log 'updateData'
 		@_data = data
+		this.setState
+			action: 'added'
 
 	classes: ->
 		classNames
@@ -30,18 +32,18 @@
 	render: ->
 		text = this.props.text
 
-		if this.state.action == 'click'
+		if this.state.action == 'adding'
 			text = 'Adding ...'
 
 		<button onClick={ this.onClick } onMouseEnter={ this.onMouseEnter } onMouseLeave={ this.onMouseLeave } className={ this.state.action }>
 			<span className={ this.classes() }>
 				{
-					if this.state.action == 'default' || this.state.action == 'mouseleave'
+					if this.state.action == 'default' || this.state.action == 'mouseleave' || this.state.action == 'added'
 						<div>
 							<i className="fa fa-circle-o fa-stack-2x"></i>
 							<i className="fa fa-plus fa-stack-1x"></i>		
 						</div>
-					else if this.state.action == 'mouseenter' || this.state.action == 'click'
+					else if this.state.action == 'mouseenter' || this.state.action == 'adding'
 						<div>
 							<i className="fa fa-circle fa-stack-2x"></i>
 							<i className="fa fa-plus fa-stack-1x"></i>		
