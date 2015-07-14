@@ -28,9 +28,5 @@ button {
 	text-transform: uppercase;
 	border: none;
 	font-size: 12px;
-	&.mouseenter, &.click, &.adding, &.added {
-		i:last-child {
-			color: $black;
-		}
-	}
+	span.active i:last-child { color: $black; }
 }

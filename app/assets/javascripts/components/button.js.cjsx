@@ -40,6 +40,7 @@
 		classNames
 			'fa-stack': true
 			'fa-lg': true
+			'active': this.state.action == 'mouseenter' || this.state.action == 'adding' || this.state.action == 'added'
 
 	render: ->
 		text = this.props.text
@@ -47,7 +48,7 @@
 		if this.state.action == 'adding' || this.state.action == 'removing'
 			text = this.state.action + ' ...'
 
-		<button onClick={ this.onClick } onMouseEnter={ this.onMouseEnter } onMouseLeave={ this.onMouseLeave } className={ this.state.action }>
+		<button onClick={ this.onClick } onMouseEnter={ this.onMouseEnter } onMouseLeave={ this.onMouseLeave }>
 			<span className={ this.classes() }>
 				{
 					if this.state.action == 'default' || this.state.action == 'mouseleave'
