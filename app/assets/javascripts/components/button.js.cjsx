@@ -38,8 +38,6 @@
 
 	classes: ->
 		classNames
-			'fa-stack': true
-			'fa-lg': true
 			'active': this.state.action == 'mouseenter' || this.state.action == 'adding' || this.state.action == 'added'
 
 	render: ->

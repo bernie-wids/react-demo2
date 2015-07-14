@@ -1,7 +1,6 @@
 @CheckButton = React.createClass
 	
 	render: ->
-		<div>
-			<i className="fa fa-circle fa-stack-2x"></i>
-			<i className="fa fa-check fa-stack-1x"></i>
-		</div>
+		<svg viewBox="0 0 512 512">
+ 			<path id="check-mark-3-icon" d="M256,50C142.229,50,50,142.229,50,256s92.229,206,206,206s206-92.229,206-206S369.771,50,256,50zM220.953,366.959l-97.326-97.352l41.44-41.448l55.884,55.899l129.018-129.018l41.459,41.431L220.953,366.959z"/>
+		</svg>

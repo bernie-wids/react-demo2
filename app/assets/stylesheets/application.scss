@@ -27,6 +27,15 @@ button {
 	color: $white;
 	text-transform: uppercase;
 	border: none;
-	font-size: 12px;
-	span.active i:last-child { color: $black; }
+	font-size: 15px;
+	line-height: 35px;
+	cursor: pointer;
+}
+
+svg {
+	fill: currentColor;
+	width: 35px;
+	height: 35px;
+	float: left;
+	margin-right: 5px;
 }
