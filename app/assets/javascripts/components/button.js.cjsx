@@ -17,7 +17,7 @@
 	onClick: ->
 		this.setState
 			action: 'adding'
-		FETCH '/welcome/demo.json', @updateData
+		FETCH '/welcome/add.json', @updateData
 			
 	updateData: (data) ->
 		@_data = data

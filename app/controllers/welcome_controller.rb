@@ -2,7 +2,7 @@ class WelcomeController < ApplicationController
   def index
   end
 
-  def demo
+  def add
   	response = { "name": "John", "age": 45 }
 
   	respond_to do |f|
