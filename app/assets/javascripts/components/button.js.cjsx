@@ -17,9 +17,12 @@
 	onClick: ->
 		this.setState
 			action: 'adding'
-		fetch '/welcome/demo.json', @updateData
+		FETCH '/welcome/demo.json', @updateData
 			
 	updateData: (data) ->
+		console.log 'updateData'
+		console.log data
+
 		@_data = data
 		this.setState
 			action: 'added'
