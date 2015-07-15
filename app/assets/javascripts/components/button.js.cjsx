@@ -50,11 +50,11 @@
 			<span className={ this.classes() }>
 				{
 					if this.state.action == 'default' || this.state.action == 'mouseleave'
-						<PlusButton />
+						<ListButton plus />
 					else if this.state.action == 'mouseenter' || this.state.action == 'adding'
-						<PlusButton />
+						<ListButton plus />
 					else if this.state.action == 'added' || this.state.action == 'removing'
-						<CheckButton />
+						<ListButton check />
 				}
 			</span>
 			{ text }
