@@ -3,12 +3,13 @@ class WelcomeController < ApplicationController
   end
 
   def add
-  	response = { "name": "John", "age": 45 }
+    response = { "name": "John", "age": 45 }
 
   	respond_to do |f|
   		f.html {}
   		f.any(:xml, :json) {
-			render request.format.to_sym => response  			
+        sleep 1
+        render request.format.to_sym => response  			
   		}
   	end
   end
@@ -19,7 +20,8 @@ class WelcomeController < ApplicationController
     respond_to do |f|
       f.html {}
       f.any(:xml, :json) {
-      render request.format.to_sym => response        
+        sleep 1
+        render request.format.to_sym => response        
       }
     end
   end
