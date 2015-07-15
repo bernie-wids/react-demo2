@@ -5,12 +5,12 @@
 		loading: false
 
 	onMouseEnter: ->
-		if this.state.action != 'adding' && this.state.action != 'added'
+		if this.state.action != 'adding' && this.state.action != 'added' && this.state.action != 'removing'
 			this.setState
 				action: 'mouseenter'
 
 	onMouseLeave: ->
-		if this.state.action != 'adding' && this.state.action != 'added'
+		if this.state.action != 'adding' && this.state.action != 'added' && this.state.action != 'removing'
 			this.setState
 				action: 'mouseleave'
 
