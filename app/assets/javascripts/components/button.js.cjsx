@@ -53,7 +53,7 @@
 						<PlusButton />
 					else if this.state.action == 'mouseenter' || this.state.action == 'adding'
 						<PlusButton />
-					else if this.state.action == 'added'
+					else if this.state.action == 'added' || this.state.action == 'removing'
 						<CheckButton />
 				}
 			</span>
