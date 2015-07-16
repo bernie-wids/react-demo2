@@ -30,6 +30,12 @@ button {
 	font-size: 15px;
 	line-height: 35px;
 	cursor: pointer;
+	border: none;
+
+	&:active {
+		position: relative;
+		left: -1px;
+	}
 
 	div {
 		float: left;
