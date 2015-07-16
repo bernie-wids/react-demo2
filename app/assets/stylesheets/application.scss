@@ -30,12 +30,27 @@ button {
 	font-size: 15px;
 	line-height: 35px;
 	cursor: pointer;
-}
 
-svg {
-	fill: currentColor;
-	width: 35px;
-	height: 35px;
-	float: left;
-	margin-right: 5px;
+	div {
+		float: left;
+		border: solid 3px $white;
+		margin-right: 5px;
+		padding: 5px;
+		border-radius: 50%;
+		-moz-border-radius: 50%;
+		-webkit-border-radius: 50%;
+		background-color: transparent;
+
+		svg {
+			fill: currentColor;
+			width: 20px;
+			height: 20px;
+			float: left;
+		}
+	}
+
+	&:hover div {
+		color: $black;
+		background-color: $white;
+	}
 }
