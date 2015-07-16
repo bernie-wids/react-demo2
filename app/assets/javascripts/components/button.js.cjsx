@@ -1,61 +1,40 @@
 @Button = React.createClass
-
 	getInitialState: ->
-		action: 'default'
+		default: true
+		added: false
 		loading: false
 
-	onMouseEnter: ->
-		if this.state.action != 'adding' && this.state.action != 'added' && this.state.action != 'removing'
-			this.setState
-				action: 'mouseenter'
+	text: ->
+		t = 'My list'
 
-	onMouseLeave: ->
-		if this.state.action != 'adding' && this.state.action != 'added' && this.state.action != 'removing'
-			this.setState
-				action: 'mouseleave'
+		if this.state.loading
+			if this.state.added
+				t = 'Removing'
+			else
+				t = 'Adding'
+		t
 
-	onClick: ->
-		action = 'adding'
-		path = '/welcome/add.json'
+	onSubmit: (event) ->
+		POST event, this.updateData, this
 
-		if this.state.action == 'added'
-			action = 'removing'
-			path = '/welcome/remove.json'
-
-		this.setState
-			action: action
-		FETCH path, @updateData
-			
 	updateData: (data) ->
-		action = 'added'
-
-		if this.state.action == 'removing'
-			action = 'default'
-
-		@_data = data
 		this.setState
-			action: action
+			added: data.added
 
-	classes: ->
-		classNames
-			'active': this.state.action == 'mouseenter' || this.state.action == 'adding' || this.state.action == 'added'
-
+	csrf: ->
+		document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+		
 	render: ->
-		text = this.props.text
-
-		if this.state.action == 'adding' || this.state.action == 'removing'
-			text = this.state.action + ' ...'
-
-		<button onClick={ this.onClick } onMouseEnter={ this.onMouseEnter } onMouseLeave={ this.onMouseLeave }>
-			<span className={ this.classes() }>
+		<form onSubmit={ this.onSubmit } action="/welcome/add">
+			<input type="hidden" name="status" value={ this.state.added } />
+			<input type="hidden" name="authenticity_token" value={ this.csrf() } />
+			<button type="submit">
 				{
-					if this.state.action == 'default' || this.state.action == 'mouseleave'
-						<ListButton plus />
-					else if this.state.action == 'mouseenter' || this.state.action == 'adding'
-						<ListButton plus />
-					else if this.state.action == 'added' || this.state.action == 'removing'
+					if this.state.added
 						<ListButton check />
+					else
+						<ListButton plus />
 				}
-			</span>
-			{ text }
-		</button>
+				{ this.text() }
+			</button>
+		</form>
