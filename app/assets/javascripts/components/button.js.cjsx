@@ -1,6 +1,5 @@
 @Button = React.createClass
 	getInitialState: ->
-		default: true
 		added: false
 		loading: false
 
