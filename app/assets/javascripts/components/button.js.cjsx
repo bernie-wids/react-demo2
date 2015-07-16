@@ -1,4 +1,5 @@
 @Button = React.createClass
+
 	getInitialState: ->
 		added: false
 		loading: false
@@ -22,11 +23,12 @@
 
 	csrf: ->
 		document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-		
+
 	render: ->
-		<form onSubmit={ this.onSubmit } action="/welcome/add">
+		<form action="/welcome/add" onSubmit={ this.onSubmit }>
 			<input type="hidden" name="status" value={ this.state.added } />
 			<input type="hidden" name="authenticity_token" value={ this.csrf() } />
+
 			<button type="submit">
 				{
 					if this.state.added
@@ -37,3 +39,4 @@
 				{ this.text() }
 			</button>
 		</form>
+		

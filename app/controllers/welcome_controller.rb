@@ -3,7 +3,8 @@ class WelcomeController < ApplicationController
   end
 
   def add
-    response = { "added": params[:status] }
+    status = params[:status] == 'false' ? true : false;
+    response = { "added": status }
     sleep 1
 
     respond_to do |f|
